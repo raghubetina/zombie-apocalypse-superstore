@@ -1,25 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="span9">
+    <h3><%= @product.name %></h3>
+  </div>
+  <div class="span2 offset1">
+    <h3 class="text-right"><%= number_to_currency(@product.price) %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="span6 offset3 well">
+    <%= image_tag @product.image_url %>
+  </div>
+</div>
+<div class="row">
+  <div class="span12">
+    <blockquote>
+      <p><%= @product.description %></p>
+      <small>Sheriff Rick</small>
+    </blockquote>
+  </div>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @product.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
-
-<p>
-  <b>Image url:</b>
-  <%= @product.image_url %>
-</p>
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
