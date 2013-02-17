@@ -13,6 +13,19 @@
         <h1><%= link_to "Zombie Apocalypse Survival Gear", root_url %></h1>
       </div>
     </div>
+    <% if session[:recents] %>
+      <div class="row">
+        <h3>Recently viewed items...</h3>
+      </div>
+      <div class="row">
+        <% recently_viewed.each do |product| %>
+          <div class="span2">
+            <%= link_to (image_tag product.image_url), product %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <br>
     <%= yield %>
   </div>
 </body>

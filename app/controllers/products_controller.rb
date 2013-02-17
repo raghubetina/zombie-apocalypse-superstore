@@ -14,7 +14,12 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-
+    if session[:recents]
+      session[:recents].unshift(@product.id)
+      session[:recents].pop if session[:recents].length >= 7
+    else
+      session[:recents] = [@product.id]
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
